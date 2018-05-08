@@ -1,11 +1,7 @@
 function palindrome(str) {
-  // Good luck!
 
-//var result = str.toLowerCase().replace(/\W/g, "").split("").reverse().join("");
-//var strLC = str.toLowerCase().replace(/\W/g, "");
-
-var result = str.toLowerCase().replace(/[^a-z]/g, "").split("").reverse().join("");
-var strLC = str.toLowerCase().replace(/[^a-z]/g, "");
+var result = str.toLowerCase().replace(/[^a-z0-9]/g, "").split("").reverse().join("");
+var strLC = str.toLowerCase().replace(/[^a-z0-9]/g, "");
 
 if (result === strLC) {
 	return true;
