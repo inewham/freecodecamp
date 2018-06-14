@@ -27,23 +27,32 @@ function includeHTML() {
 }
 
 $(document).ready(function() {
-  $('#getMessage').on('click', function(e) {
-    e.preventDefault();
-    $.ajax( {
-      url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
-      success: function(data) {
-        var post = data.shift(); // The data is an array of posts. Grab the first one.
-        $('#quote-title').text(post.title);
-        $('#quote-content').html(post.content);
 
-        // If the Source is available, use it. Otherwise hide it.
-        if (typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined') {
-          $('#quote-source').html('Source:' + post.custom_meta.Source);
-        } else {
-          $('#quote-source').text('');
-        }
-      },
-      cache: false
+  getQuote();
+
+  $.ajaxSetup({ cache: false });
+  
+  var randomQuote, author;
+
+  function getQuote(){
+    var url = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+
+    $.getJSON(url, function(data){
+      randomQuote = data[0].content;
+      randomQuote = randomQuote.slice(3).slice(0, -6);
+      author = data[0].title;
+      $("#quote-content").html('"'+randomQuote+'"');
+      $("#quote-title").html(" - "+ author);
+      
     });
+    cache: false
+  }
+
+  $('#tweetout').on('click', function(){
+    window.open("https://twitter.com/intent/tweet?text="+randomQuote);
+  });
+
+  $("#getMessage").on("click", function(){
+    getQuote();
   });
 });

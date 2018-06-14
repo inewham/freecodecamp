@@ -1,0 +1,26 @@
+body{
+	background-color: black;
+	color:white;
+	text-align: center;
+	font-family: "New Time Roman"
+}
+
+h1{
+	font-size: 50px;
+}
+
+#quote-content;
+#quote-title,
+#quote-content-container,
+#quote-title-container
+.row{
+	text-align: center;
+}
+
+#quote-content{
+	font-size: 30px;
+}
+
+#quote-title{
+	font-style: italic;
+}
