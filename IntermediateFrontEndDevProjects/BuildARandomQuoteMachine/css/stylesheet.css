@@ -2,19 +2,29 @@ body{
 	background-color: black;
 	color:white;
 	text-align: center;
-	font-family: "New Time Roman"
+	font-family: "New Times Roman"
 }
 
 h1{
 	font-size: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-#quote-content;
-#quote-title,
-#quote-content-container,
-#quote-title-container
-.row{
-	text-align: center;
+.container-fluid{
+	background: red;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#quote-content,
+#quote-title{
+	border: 2px;
+	border-color: green;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #quote-content{

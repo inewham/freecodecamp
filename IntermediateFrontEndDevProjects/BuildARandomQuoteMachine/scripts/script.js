@@ -45,7 +45,6 @@ $(document).ready(function() {
       $("#quote-title").html(" - "+ author);
       
     });
-    cache: false
   }
 
   $('#tweetout').on('click', function(){
